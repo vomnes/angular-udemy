@@ -1,0 +1,9 @@
+<label>Content</label><br>
+<button type="button" class="btn btn-primary"
+(click)="toggleText()">Display details</button>
+<p *ngIf="isVisible">This is the secret !</p>
+<br>
+<label>Logs</label>
+<p *ngFor="let log of logs; index as i"
+[ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'none'}"
+[ngClass]="{'white-text': i >= 5}">{{ log.updatedAt }}</p>
