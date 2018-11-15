@@ -8,7 +8,11 @@ import { RecipeBook } from './recipe-book.model';
   styleUrls: ['./recipe-book.component.css']
 })
 export class RecipeBookComponent implements OnInit {
-  selectedRecipe: RecipeBook = null;
+  selectedRecipe: RecipeBook = new RecipeBook(
+        'B test',
+        'This is B test',
+        'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
+      );
 
   constructor() { }
 
