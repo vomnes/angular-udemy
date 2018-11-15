@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RecipeBook } from './recipe-book.model';
+import { RecipeService } from './recipe-book.service';
 
 @Component({
   selector: 'app-recipe-book',
   templateUrl: './recipe-book.component.html',
-  styleUrls: ['./recipe-book.component.css']
+  styleUrls: ['./recipe-book.component.css'],
+  providers: [RecipeService]
 })
 export class RecipeBookComponent implements OnInit {
-  selectedRecipe: RecipeBook = new RecipeBook(
-        'B test',
-        'This is B test',
-        'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
-      );
+  selectedRecipe: RecipeBook;
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-  }
-
-  recipeSelected(data: RecipeBook) {
-    this.selectedRecipe = data;
+    this.recipeService.recipeSelected
+      .subscribe(
+        (recipe: RecipeBook) => {
+          this.selectedRecipe = recipe;
+        }
+      );
   }
 }
