@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentTab = 'recipes';
+  currentTab = 'shopping';
 
   updateTab(tabName: string) {
     this.currentTab = tabName;
