@@ -6,15 +6,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() changeTab = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  updateTab(newName) {
-    this.changeTab.emit(newName);
   }
 
 }
