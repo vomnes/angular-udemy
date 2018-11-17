@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs/Rx';
+import { Subject } from 'rxjs';
 
 export class UsersService {
   userActivated = new Subject();
