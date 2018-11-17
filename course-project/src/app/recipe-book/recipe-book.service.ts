@@ -32,4 +32,11 @@ export class RecipeService {
       return this.recipes.slice(); // Return a copy not the address
     }
   }
+
+  getRecipeByIndex(id: number) {
+    if (this.recipes && id >= 0 && id <= (this.recipes.length - 1)) {
+      return this.recipes[id]; // Return a copy not the address
+    }
+    return null
+  }
 }
