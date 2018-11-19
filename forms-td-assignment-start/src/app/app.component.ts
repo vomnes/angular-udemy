@@ -13,7 +13,7 @@ export class AppComponent {
     'Advanced',
     'Pro'
   ];
-  selectedOption = 'Advanced';
+  defaultOption = 'Advanced';
   submitted = false;
   user = {
     email: '',
@@ -22,15 +22,16 @@ export class AppComponent {
   }
 
   onSubmit() {
+    console.log(this.signupForm.value);
     console.log(this.signupForm.value.email);
-    console.log(this.selectedOption);
+    console.log(this.defaultOption);
     console.log(this.signupForm.value.password);
 
     this.submitted = true;
     this.user.email = this.signupForm.value.email;
-    this.user.subscriptionType = this.selectedOption;
+    this.user.subscriptionType = this.defaultOption;
     this.user.password = this.signupForm.value.password;
-    this.signupForm.reset();
+    // this.signupForm.reset();
   }
 
 }
