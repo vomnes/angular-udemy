@@ -4,10 +4,11 @@
     <hr>
     <p>The list</p>
     <ul class="lis-group">
-      <a href="#"
+      <a
       class="list-group-item"
       style="cursor: pointer"
-      *ngFor="let ingredient of shoppingListService.getIngredients()">
+      *ngFor="let ingredient of shoppingListService.getIngredients(); let i = index"
+      (click)="onEditItem(i)">
       {{  ingredient.name }} ({{ ingredient.amount }})
     </a>
     </ul>
