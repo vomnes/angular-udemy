@@ -11,6 +11,7 @@ import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeDetailsComponent } from './recipe-book/recipe-details/recipe-details.component';
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
+import { RecipeService } from './recipe-book/recipe-book.service';
 
 import { DropdownDirective } from './shared/dropdown-directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -39,7 +40,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
