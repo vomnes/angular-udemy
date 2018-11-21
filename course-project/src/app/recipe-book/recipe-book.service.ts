@@ -1,32 +1,14 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { RecipeBook } from './recipe-book.model';
 import { Ingredient } from '../shared/ingredient.model';
 
+@Injectable()
 export class RecipeService {
   recipesChanged = new Subject<RecipeBook[]>();
 
-  private recipes: RecipeBook[] = [
-    new RecipeBook(
-      'A test',
-      'This is a test',
-      'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
-      [
-        new Ingredient('Meat', 1),
-        new Ingredient('French Fries', 20)
-      ]
-    ),
-    new RecipeBook(
-      'B test',
-      'This is B test',
-      'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
-      [
-        new Ingredient('Buns', 1),
-        new Ingredient('Beef', 2)
-      ]
-    )
-  ];
+  private recipes: RecipeBook[];
 
   getRecipes() {
     if (this.recipes) {
@@ -56,4 +38,28 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
+  initRecipes(recipes: RecipeBook[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
 }
+
+// new RecipeBook(
+//   'A test',
+//   'This is a test',
+//   'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
+//   [
+//     new Ingredient('Meat', 1),
+//     new Ingredient('French Fries', 20)
+//   ]
+// ),
+// new RecipeBook(
+//   'B test',
+//   'This is B test',
+//   'https://c.pxhere.com/photos/8b/0f/food_meat_recipe_power_pork_dishes-604134.jpg!d',
+//   [
+//     new Ingredient('Buns', 1),
+//     new Ingredient('Beef', 2)
+//   ]
+// )
