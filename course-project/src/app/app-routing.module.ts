@@ -12,6 +12,9 @@ import { RecipeDetailsComponent } from './recipe-book/recipe-details/recipe-deta
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { SigninComponent } from "./auth/signin/signin.component";
+import { SignupComponent } from "./auth/signup/signup.component";
+import { AuthGuard } from "./auth/auth-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -24,14 +27,22 @@ const appRoutes: Routes = [
     component: RecipeBookComponent,
     children: [
       { path: '', component: RecipeStartComponent },
-      { path: 'new', component: RecipeEditComponent },
+      { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
       { path: ':id', component: RecipeDetailsComponent },
-      { path: ':id/edit', component: RecipeEditComponent }
+      { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard]  }
     ]
   },
   {
     path: 'shopping',
     component: ShoppingListComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  {
+    path: 'signin',
+    component: SigninComponent,
   }
 ];
 

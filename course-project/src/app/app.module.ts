@@ -21,6 +21,10 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { LoginInterceptor } from "./shared/login.interceptor";
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from "./auth/auth.service";
+import { AuthGuard } from "./auth/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { LoginInterceptor } from "./shared/login.interceptor";
     RecipeItemComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,8 @@ import { LoginInterceptor } from "./shared/login.interceptor";
     ShoppingListService,
     RecipeService,
     DataStorageService,
+    AuthService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

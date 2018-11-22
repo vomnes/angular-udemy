@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DataStorageService } from './shared/data-storage.service';
-import { RecipeService } from './recipe-book/recipe-book.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +10,14 @@ import { RecipeService } from './recipe-book/recipe-book.service';
 export class AppComponent implements OnInit  {
   currentTab = 'recipes';
 
-  constructor(private dataStorageService: DataStorageService,
-    private recipeService: RecipeService) {}
-
   updateTab(tabName: string) {
     this.currentTab = tabName;
   }
 
   ngOnInit() {
-    this.dataStorageService.getRecipes();
+    firebase.initializeApp({
+      apiKey: "AIzaSyA7YqFyLNFcZ7-iCc47dMGzt1Wpb69KeYQ",
+      authDomain: "udemy-angular-recipebook-7aa39.firebaseapp.com",
+    });
   }
 }
