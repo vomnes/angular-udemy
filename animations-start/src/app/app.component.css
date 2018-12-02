@@ -1,0 +1,36 @@
+.container {
+  height: 100%;
+}
+
+.side-bar {
+  position: absolute;
+  width: 150px;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  font-size: 35px;
+  overflow: hidden;
+}
+
+.side-bar ul {
+  width: 150px;
+  overflow: hidden;
+}
+
+.top-bar {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  background-color: white;
+  font-size: 35px;
+  overflow: hidden;
+}
+
+.top-bar ul {
+  width: 100%;
+  overflow: hidden;
+}

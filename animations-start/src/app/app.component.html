@@ -4,6 +4,7 @@
       <h1>Animations</h1>
       <button class="btn btn-primary" (click)="onAnimate()">Animate!</button>
       <button class="btn btn-primary" (click)="onShrink()">Shrink!</button>
+      <button class="btn btn-primary" (click)="onToggleSide()">Open Side</button>
       <hr>
       <div
         style="width: 100px; height: 100px;"
@@ -18,6 +19,7 @@
       </div>
     </div>
   </div>
+  <button class="btn btn-primary" (click)="onToggleTop()">Open Top</button>
   <hr>
   <div class="row">
     <div class="col-xs-12">
@@ -48,4 +50,24 @@
         </li>
       </ul>
     </div>
+</div>
+<div class="side-bar" [@menu]="sideOpened">
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+  </ul>
+</div>
+<div class="top-bar" [@top]="topOpened">
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+  </ul>
 </div>

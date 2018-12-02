@@ -4,6 +4,7 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
   animations: [
     trigger('divState', [
       // Style variable need to respect the right standard for each state
@@ -22,7 +23,7 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
       // Style variable need to respect the right standard for each state
       state('normal', style({
         'background-color': 'red',
-        transform: 'translateX(0) scale(1)'
+        transform: 'translateX(0) scale(1)',
         borderRadius: '0'
       })),
       state('highlighted', style({
@@ -57,7 +58,7 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
         style({
           opacity: 0,
           transform: 'translateX(-100px)'
-        })
+        }),
         animate(300)
       ]),
       transition('* => void', [
@@ -111,12 +112,36 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
         ])
       ]),
     ]),
+    trigger('menu', [
+      // Style variable need to respect the right standard for each state
+      state('false', style({
+        // width: '0px',                // Effect - 1
+        transform: 'translateX(-150px)' // Effect - 2
+      })),
+      state('true', style({
+        // width: '150px',              // Effect - 1
+        transform: 'translateX(0)'      // Effect - 2
+      })),
+      transition('false <=> true', animate(300)),
+    ]),
+    trigger('top', [
+      // Style variable need to respect the right standard for each state
+      state('false', style({
+        height: '10px',
+      })),
+      state('true', style({
+        height: '350px',
+      })),
+      transition('false <=> true', animate(300)),
+    ]),
   ]
 })
 export class AppComponent {
   state = 'normal';
   wildState = 'normal';
   list = ['Milk', 'Sugar', 'Bread'];
+  sideOpened = false;
+  topOpened = false;
 
     onAnimate() {
       this.state == 'normal' ? this.state = 'highlighted' : this.state = 'normal';
@@ -145,5 +170,14 @@ export class AppComponent {
 
     animationEnded(event) {
       console.log(event);
+    }
+
+    onToggleSide() {
+      this.sideOpened = !this.sideOpened;
+      console.log(this.sideOpened);
+    }
+
+    onToggleTop() {
+      this.topOpened = !this.topOpened;
     }
 }
